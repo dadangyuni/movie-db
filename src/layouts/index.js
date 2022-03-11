@@ -1,12 +1,12 @@
 import React from 'react';
-
-const MvbLayout = React.lazy(() => import("./mvb"));
+import MvbLayout from 'layouts/mvb';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   return (
-    <React.Suspense fallback={<div>Loading...</div>}>
+    <BrowserRouter>
       <MvbLayout />
-    </React.Suspense>
+    </BrowserRouter>
   );
 }
 
