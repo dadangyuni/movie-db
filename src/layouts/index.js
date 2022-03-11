@@ -4,9 +4,9 @@ const MvbLayout = React.lazy(() => import("./mvb"));
 
 function App() {
   return (
-    <div>
+    <React.Suspense fallback={<div>Loading...</div>}>
       <MvbLayout />
-    </div>
+    </React.Suspense>
   );
 }
 
