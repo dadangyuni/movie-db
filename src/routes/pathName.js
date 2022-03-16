@@ -5,7 +5,8 @@ const pathName = {
     },
     tvShow: {
         list: '/tv-show'
-    }
+    },
+    search: params => `/search/${params || ''}`
 };
 
 export default pathName;

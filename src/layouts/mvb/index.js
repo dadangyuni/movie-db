@@ -1,3 +1,4 @@
+import { LoadingPage } from 'components';
 import React from 'react';
 import {
     Routes,
@@ -10,7 +11,7 @@ import './styles/index.styles.scss';
 function App(props) {
   return (
     <div className="app">
-      <AppHeader />
+      <AppHeader {...props} />
       <div className="app-content">
         <div className="contet-wrapper">
           <Routes>
@@ -19,8 +20,9 @@ function App(props) {
                     <Route
                       key={idx}
                       path={m.path}
+                      exact={m.exact}
                       element={(
-                        <React.Suspense fallback={<div>Loading</div>}>
+                        <React.Suspense fallback={<LoadingPage />}>
                           <m.component
                             {...props}
                           />

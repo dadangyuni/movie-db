@@ -1,0 +1,27 @@
+.page-loading{
+     position: absolute;
+     background-color: #8998a7;
+     width: 100%;
+     left: 0;
+     top: 0;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     .loading-container{
+        margin: auto;
+        max-width: 200px;
+        width: 100%;
+        text-align: center;
+        font-family: 'Poppins',Arial, Helvetica, sans-serif;
+        .ant-progress{
+            .ant-progress-inner{
+                border-radius: 5px;
+                .ant-progress-bg{
+                    height: 7px;
+                    background-color: #042b50;
+                    border-radius: 5px;
+                }
+            }
+        }
+     }
+}

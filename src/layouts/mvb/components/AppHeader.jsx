@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
 import { Image, Input } from 'antd';
 import pathName from 'routes/pathName';
+import { Link, useNavigate } from 'react-router-dom';
 import { VideoCameraOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCameraRetro } from '@fortawesome/free-solid-svg-icons';
 
-const { movie, home } = pathName;
+const { movie, home, search } = pathName;
 
 const AppHeader = () => {
+    const navigate = useNavigate();
     const handleSearch = (value) => {
-        console.log('value', value);
+        navigate(value ? search(value) : home);
     };
     useEffect(() => {
       let prevScrollpos = window.pageYOffset;
@@ -58,8 +59,8 @@ const AppHeader = () => {
                 </Link>
                 <div className="submenu-dropdown">
                   <Link to="/trending">Trending</Link>
-                  <Link to={pathName}>Popular</Link>
-                  <Link to={pathName}>New Release</Link>
+                  <Link to={home}>Popular</Link>
+                  <Link to={home}>New Release</Link>
                 </div>
               </li>
             </ul>

@@ -117,7 +117,6 @@ body {
         .contet-wrapper{
             margin: 0 auto;
             max-width: 1500px;
-            height: 2000px;
             width: 100%;
             color: #FFFFFF;
         }
@@ -132,3 +131,4 @@ body {
 
 @import '~antd/dist/antd.css';
 @import './antdesign.custom.scss';
+@import './components.style.scss';

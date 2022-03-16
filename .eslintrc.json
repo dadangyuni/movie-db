@@ -47,6 +47,12 @@
         "react/jsx-props-no-spreading":"off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "react/no-array-index-key":"off",
-        "react/function-component-definition":"off"
+        "react/function-component-definition":"off",
+        "react/prefer-stateless-function":"off",
+        "react/static-property-placement":"off",
+        "react/no-unused-state":[0],
+        "lines-between-class-members": "off",
+        "react/destructuring-assignment":"off",
+        "react/prop-types":"off"
     }
 }

@@ -1,13 +1,16 @@
 import React from 'react';
 import MvbLayout from 'layouts/mvb';
 import { BrowserRouter } from 'react-router-dom';
+import { ErrorBoundary } from 'components';
 
-function App() {
+const App = (props) => {
   return (
     <BrowserRouter>
-      <MvbLayout />
+      <ErrorBoundary>
+        <MvbLayout {...props} />
+      </ErrorBoundary>
     </BrowserRouter>
   );
-}
+};
 
 export default App;
