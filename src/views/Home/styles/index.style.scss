@@ -1,13 +1,24 @@
 .home-container{
     padding: 20px;
+    h2.ant-typography, h4.ant-typography{
+        font-family: 'Poppins', Arial, Helvetica, sans-serif;
+        color: #FFFFFF;
+        font-weight: 500;
+    }
+    h2.ant-typography{
+        font-size: 25px;
+    }
     .discover-container{
+        margin-bottom: 50px;
         .discover-caraousel{
+            .slick-slide{
+                padding: 10px;
+            }
             .slick-dots-bottom{
-                bottom: -20px;
+                bottom: -30px;
             }
             .card-item-discover{
                 position: relative;
-                padding: 10px;
                 .ant-image{
                     width: 100%;
                     border-radius: 16px;
@@ -29,7 +40,6 @@
                     top: 0;
                     width: 100%;
                     color: #FFFFFF;
-                    padding: 10px;
                     display: flex;
                     flex-direction: column-reverse;
                     .info-wrapper{
@@ -57,5 +67,97 @@
                 }
             }
         }
+    }
+    .popular-container{
+        margin: 10px 0px;
+        margin-bottom: 50px;
+        .popular-list-container{
+            .card-populer-container{
+                .img-container{
+                    position: relative;
+                    border-radius: 10px;
+                    
+                    .ant-image{
+                        width: 100%;
+                        border-radius: 10px;
+                        box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+                        0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+                        0 12.5px 10px rgba(0, 0, 0, 0.06),
+                        0 9px 17.9px rgba(0, 0, 0, 0.072);
+                        background-color: transparent;
+                        overflow: hidden;
+                        transition: all 0.3s ease-out;
+                        .ant-image-img{
+                            opacity:1;
+                            transition: all 0.3s ease-out;
+                        }
+                        
+                    }
+                    &:hover{
+                        .ant-image{
+                            background-color: black;
+                            .ant-image-img{
+                                opacity: 0.5;
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+                    .overlay-info{
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        left: 0;
+                        bottom: 0;
+                        opacity: 0;
+                        border-radius: 10px;
+                        .info-rate{
+                            position: absolute;
+                            top: 0;
+                            right: 10px;
+                            opacity: 0;
+                            transition: all 0.2s ease-out;
+                            color: #FFFFFF;
+                        }
+                    }
+
+                    &:hover{
+                        .overlay-info{
+                            opacity: 1;
+                            .info-rate{
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                .desc-container{
+                    margin-bottom: 30px;
+                    .desc-title{
+                        color: #FFFFFF;
+                    }
+                    .desc-release-year{
+                        color: #c2c2c2;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+
+    .sub-title-section{
+        font-family:'Poppins', Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        font-weight: 400;   
+        margin-bottom: 10px;
+    }
+    @media only screen and (max-width: 480px){
+        padding: 0px;
+    }
+
+    @media only screen and (max-width: 768px){
+        
+    }
+
+    @media only screen and (max-width: 1024px){
+        
     }
 }

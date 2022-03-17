@@ -1,27 +1,45 @@
 import React from 'react';
 import movieProvider from 'apis/movieProvider';
-import { Carousel, Image, message, Rate, Typography } from 'antd';
+import { Carousel, Col, message, Row, Typography } from 'antd';
+import config from './index.config';
 import './styles/index.style.scss';
+import { CardDiscover, CardPopuler } from './components';
 
 const App = () => {
   const [discover, setDiscover] = React.useState({
     dataSource: [],
-    pagination: {
-      current: 1,
-      total: 0,
-      pageSize: 10
-    }
   });
+  const [popular, setPopuplar] = React.useState({
+    dataSource: [],
+  });
+  const [rated, setRated] = React.useState({
+    dataSource: [],
+  });
+
   const getMovie = async () => {
     try {
-      const response = await movieProvider.get('discover/movie');
-      if (response.data) {
-        const { results, total_results } = response.data;
-        const pagination = {
-          ...discover.pagination,
-          total: total_results
-        };
-        setDiscover({ dataSource: results, pagination });
+      const [
+        discoverResp,
+        popularResp,
+        topRatedResp
+      ] = await Promise.all([
+        movieProvider.get('discover/movie'),
+        movieProvider.get('movie/popular'),
+        movieProvider.get('movie/top_rated')
+      ].map(p => p.then(res => res).catch(error => ({}))));
+
+      if (discoverResp.data) {
+        const { results } = discoverResp.data;
+        setDiscover({ dataSource: results });
+      }
+
+      if (popularResp.data) {
+        const { results } = popularResp.data;
+        setPopuplar({ dataSource: results });
+      }
+      if (topRatedResp.data) {
+        const { results } = topRatedResp.data;
+        setRated({ dataSource: results });
       }
     } catch (error) {
       message.error(error);
@@ -39,59 +57,38 @@ const App = () => {
         <Carousel
           className="discover-caraousel"
           infinite
-          slidesToShow={3}
-          slidesToScroll={2}
+          slidesToShow={2}
+          slidesToScroll={1}
+          centerMode
+          centerPadding="60px"
           swipeToSlide
-          responsive={[
-            {
-              breakpoint: 1024,
-              settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                infinite: true,
-                dots: true
-              }
-            },
-            {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2,
-                initialSlide: 2
-              }
-            },
-            {
-              breakpoint: 480,
-              settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-              }
-            }
-          ]}
+          responsive={config.carousel.responsive}
         >
           {discover.dataSource && discover.dataSource.length > 0 && Array(8).fill("").map((__, idx) => {
-            const imgUrl = movieProvider.getImage(discover.dataSource[idx].backdrop_path, 'w500');
-            return (
-              <div className="card-item-discover" key={discover.dataSource[idx].id}>
-                <Image src={imgUrl} preview={false} />
-                <div className="info-container">
-                  <div className="info-wrapper">
-                    <Typography.Title level={5}>{discover.dataSource[idx].title}</Typography.Title>
-                    <Typography.Text>{discover.dataSource[idx].release_date}</Typography.Text>
-                    <div className="rating-wrapper">
-                      <Rate count={1} value={1} />
-                      {" "}
-                      {discover.dataSource[idx].vote_average}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
+            return (<CardDiscover key={discover.dataSource[idx].id} data={discover.dataSource[idx]} />);
           })}
         </Carousel>
       </div>
-      <div className="popular-container" />
-      <div className="toprated-container" />
+      <div className="popular-container">
+        <div className="sub-title-section">Most Popular</div>
+        <div className="popular-list-container">
+          <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
+            {popular.dataSource && popular.dataSource.length > 0 && Array(12).fill("").map((__, idx) => {
+                if (popular.dataSource.length > idx) {
+                  return (
+                    <Col key={discover.dataSource[idx].id} span={8} sm={6} lg={4}>
+                      <CardPopuler data={discover.dataSource[idx]} />
+                    </Col>
+                  );
+                }
+                return null;
+              })}
+          </Row>
+        </div>
+      </div>
+      <div className="toprated-container">
+        <div className="sub-title-section">Top Rated</div>
+      </div>
     </div>
   );
 };
