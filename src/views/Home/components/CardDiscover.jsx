@@ -3,6 +3,7 @@ import { Image, Rate, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import movieProvider from 'apis/movieProvider';
 import pathName from 'routes/pathName';
+import moment from 'moment';
 
 const { movie } = pathName;
 
@@ -15,7 +16,7 @@ const CardDiscover = ({ data }) => {
           <div className="info-container">
             <div className="info-wrapper">
               <Typography.Title level={5}>{data.title}</Typography.Title>
-              <Typography.Text>{data.release_date}</Typography.Text>
+              <Typography.Text>{data.release_date ? moment(data.release_date).format("MMMM, YYYY") : null}</Typography.Text>
               <div className="rating-wrapper">
                 <Rate count={1} value={1} disabled />
                 {" "}

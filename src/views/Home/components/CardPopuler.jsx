@@ -1,8 +1,9 @@
 import React from 'react';
 import movieProvider from 'apis/movieProvider';
-import { Image, Rate } from 'antd';
+import { Image, Rate, Typography } from 'antd';
 import { Link } from 'react-router-dom';
 import pathName from 'routes/pathName';
+import moment from 'moment';
 
 const { movie } = pathName;
 
@@ -25,9 +26,11 @@ const CardPopuler = ({ data }) => {
         </div>
         <div className="desc-container">
           <div className="desc-title">
-            <Link to={movie.detail(data.id)}>{data.title}</Link>
+            <Link to={movie.detail(data.id)}>
+              <Typography.Paragraph ellipsis={{ rows: 1, tooltip: <div>{data.title}</div> }}>{data.title}</Typography.Paragraph>
+            </Link>
           </div>
-          <div className="desc-release-year">{data.release_date}</div>
+          <div className="desc-release-year">{data.release_date ? moment(data.release_date).format("MMMM, YYYY") : null}</div>
         </div>
       </div>
     );
