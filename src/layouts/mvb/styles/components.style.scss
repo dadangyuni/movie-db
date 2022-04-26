@@ -25,3 +25,36 @@
         }
      }
 }
+
+.loading-discover-container{
+    .skeleton-discover{
+        min-height: 200px;
+    }
+}
+
+.loading-popular-card{
+    .skeleton-popular{
+        min-height: 100px;
+        border-radius: 8px;
+    }
+}
+
+.top-rated-loading{
+    .card-rated-container{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        .image-wrapper{
+            width: 100%;
+            max-width: 120px;
+            padding: 0px 10px;
+            .image-loading{
+                min-height: 100px;
+                border-radius: 8px;
+            }
+        }
+        .info-rated-wrapper{
+            padding: 0px;
+        }
+    }
+}
