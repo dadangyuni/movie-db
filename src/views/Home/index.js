@@ -1,12 +1,15 @@
 import React from 'react';
 import movieProvider from 'apis/movieProvider';
 import { LoadingDiscover, LoadingPopular, LoadingTopRated } from 'components';
-import { Carousel, Col, message, Row, Typography } from 'antd';
-import config from './index.config';
-import './styles/index.style.scss';
+import { Button, Carousel, Col, message, Row, Typography } from 'antd';
+import pathName from 'routes/pathName';
+import { Link, unstable_HistoryRouter } from 'react-router-dom';
 import { CardDiscover, CardPopuler, CardRated } from './components';
+import './styles/index.style.scss';
+import config from './index.config';
 
 const App = () => {
+  const history = unstable_HistoryRouter;
   const [discover, setDiscover] = React.useState({
     loading: false,
     dataSource: [],
@@ -70,6 +73,22 @@ const App = () => {
 
   return (
     <div className="home-container">
+      <div className="banner">
+        <div className="img-bg" />
+        <div className="title-wrapper">
+          <p className="site-name colored">McatLib</p>
+          <h1 className="title">
+            Unlimited
+            {' '}
+            <span className="colored">Movie</span>
+            ,
+            TVs, Shows, & More.
+          </h1>
+          <div className="subtitle">
+            <Link className="discover-btn" to={pathName.movie.list}>Discover Now</Link>
+          </div>
+        </div>
+      </div>
       <div className="discover-container">
         <Typography.Title level={2}>Discover</Typography.Title>
         <Carousel

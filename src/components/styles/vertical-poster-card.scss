@@ -1,0 +1,81 @@
+.vertical-poster-card{
+    min-height: 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .img-container{
+        flex: 1 1 auto;
+        position: relative;
+        border-radius: 10px;
+        .ant-image{
+            height: 100%;
+            width: auto !important;
+            border-radius: 10px;
+            box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+            0 12.5px 10px rgba(0, 0, 0, 0.06),
+            0 9px 17.9px rgba(0, 0, 0, 0.072);
+            background-color: transparent;
+            overflow: hidden;
+            transition: all 0.3s ease-out;
+            .ant-image-img{
+                width: 100%;
+                height: 100%;
+                opacity:1;
+                transition: all 0.3s ease-out;
+            }
+            
+        }
+        &:hover{
+            .ant-image{
+                background-color: black;
+                .ant-image-img{
+                    opacity: 0.5;
+                    transform: scale(1.1);
+                }
+            }
+        }
+        .overlay-info{
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            opacity: 0;
+            border-radius: 10px;
+            min-height: 240px;
+            .info-rate{
+                position: absolute;
+                top: 0;
+                right: 10px;
+                opacity: 0;
+                transition: all 0.2s ease-out;
+                color: #FFFFFF;
+            }
+        }
+
+        &:hover{
+            .overlay-info{
+                opacity: 1;
+                .info-rate{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .desc-container{
+        margin-bottom: 30px;
+        .desc-title{
+            color: #FFFFFF;
+            .ant-typography-ellipsis{
+                color: #bef9ff;
+                font-size: 16px;
+                margin-bottom: 0px;
+            }
+        }
+        .desc-release-year{
+            color: #c2c2c2;
+            font-weight: 500;
+        }
+    }
+}
