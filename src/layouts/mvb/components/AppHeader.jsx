@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { Image, Input } from 'antd';
 import pathName from 'routes/pathName';
 import { Link, useNavigate } from 'react-router-dom';
-import { VideoCameraOutlined } from '@ant-design/icons';
+import { VideoCameraOutlined, GoldOutlined } from '@ant-design/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCameraRetro } from '@fortawesome/free-solid-svg-icons';
 
-const { movie, home, search } = pathName;
+const { movie, home, search, genre, tvShow } = pathName;
 
 const AppHeader = () => {
     const navigate = useNavigate();
@@ -46,22 +46,29 @@ const AppHeader = () => {
                   <div>Movie</div>
                 </Link>
                 <div className="submenu-dropdown">
-                  <Link to="/trending">Trending</Link>
-                  <Link to={movie}>Popular</Link>
-                  <Link to={movie}>New Release</Link>
+                  <Link to={movie.trending}>Trending</Link>
+                  <Link to={movie.popular}>Popular</Link>
+                  <Link to={movie.newRelease}>New Release</Link>
                 </div>
               </li>
               <li className="dropdown-wrapper">
-                <Link to={movie} className="drop-btn">
+                <Link to={tvShow.list} className="drop-btn">
                   <VideoCameraOutlined />
                   {' '}
                   Tv Show
                 </Link>
                 <div className="submenu-dropdown">
-                  <Link to="/trending">Trending</Link>
-                  <Link to={home}>Popular</Link>
-                  <Link to={home}>New Release</Link>
+                  <Link to={tvShow.trending}>Trending</Link>
+                  <Link to={tvShow.popular}>Popular</Link>
+                  <Link to={tvShow.newRelease}>New Release</Link>
                 </div>
+              </li>
+              <li className="dropdown-wrapper">
+                <Link to={genre.list} className="drop-btn">
+                  <GoldOutlined />
+                  {' '}
+                  Genre
+                </Link>
               </li>
             </ul>
           </div>

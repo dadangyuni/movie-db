@@ -3,11 +3,13 @@ import ErrorBoundary from "./ErrorBoundary";
 import LoadingDiscover from "./LoadingDiscover";
 import LoadingTopRated from "./LoadingTopRated";
 import LoadingPopular from "./LoadingPopular";
+import VerticalPosterCard from './Card/VerticalPosterCard';
 
 export {
-    LoadingPage,
     ErrorBoundary,
     LoadingDiscover,
+    LoadingPage,
+    LoadingPopular,
     LoadingTopRated,
-    LoadingPopular
+    VerticalPosterCard
 };

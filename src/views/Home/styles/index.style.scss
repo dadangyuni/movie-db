@@ -1,5 +1,55 @@
 .home-container{
     padding: 20px;
+    .banner{
+        overflow: hidden;
+        padding: 10px;
+        .img-bg{
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 600px;
+            background-image: url('../../../../public/assets/images/banner_bg01.jpg');
+        }
+        .title-wrapper{
+            width: 100%;
+            height: 500px;
+            max-width: 1500px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            .site-name{
+                font-size: 22px;
+                line-height: 15px;
+            }
+            h1.title{
+                font-weight: 700;
+                font-size: 43px;
+                color: #fff;
+                line-height: 60px;
+                max-width: 500px;
+                
+            }
+            .subtitle{
+                font-weight: 600;
+                font-size: 16px;
+                a{
+                    color: #a0e3ff;
+                }
+                .discover-btn{
+                    height: 60px;
+                    padding: 10px 50px;
+                    border-radius: 32px;
+                    font-size: 24px;
+                    border: 1px solid #a0e3ff;
+                }
+            }
+        }
+        .colored{
+            color: #a0e3ff;
+        }
+    }
     h2.ant-typography, h4.ant-typography{
         font-family: 'Poppins', Arial, Helvetica, sans-serif;
         color: #FFFFFF;
@@ -122,11 +172,6 @@
             }
         }
     }
-
-    .upcoming-container{
-
-    }
-
     .card-populer-container{
         .img-container{
             position: relative;
@@ -210,6 +255,23 @@
     }
     @media only screen and (max-width: 480px){
         padding: 0px;
+        .banner{
+            .img-bg{
+                height: 500px;
+            }
+            .title-wrapper{
+                height: 400px;
+                h1.title{
+                    font-size: 32px;
+                    line-height: 42px;
+                }
+                .subtitle{
+                    .discover-btn{
+                        height: 10px;
+                    }
+                }
+            }
+        }
     }
 
     @media only screen and (max-width: 768px){

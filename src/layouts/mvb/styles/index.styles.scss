@@ -117,15 +117,40 @@ body {
         .contet-wrapper{
             margin: 0 auto;
             max-width: 1500px;
+            height: 100%;
             width: 100%;
             color: #FFFFFF;
         }
     }
 
     .app-footer{
-        height: 50px;
-        text-align: center;
+        height: 80px;
         color:#FFFFFF;
+        border-top: 1px solid #27384c;
+        display: flex;
+        flex-direction: column;
+        padding: 10px ;
+        .footer-container{
+            display: flex;
+            max-width: 1500px;
+            width: 100%;
+            margin: auto;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            .copy-wrapper{
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 10px;
+                .app-logo{
+                    img{
+                        height: 15px;
+                        width: auto
+                    }
+                }
+            }
+        }
     }
 }
 

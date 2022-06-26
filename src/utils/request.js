@@ -1,4 +1,5 @@
 import Axios from "axios";
+import queryString from 'query-string';
 import { movieDbUrl, movieDbApiKey, movieDbAccessToken } from 'utils/intialEndpoint';
 
 const getBaseHeader = async () => {
@@ -15,8 +16,13 @@ export const getOption = async (method, url, data) => {
 };
 
 export const movieProvider = {
-    get: async (url, params) => {
-        const option = await getOption('GET', `${movieDbUrl}/${url}?api_key=${movieDbApiKey}`, params);
+    get: async (url, params, data) => {
+        let newParams = {
+            api_key: movieDbApiKey,
+            ...params
+        };
+        newParams = queryString.stringify(newParams, { skipEmptyString: true });
+        const option = await getOption('GET', `${movieDbUrl}/${url}?${newParams}`, data);
         const response = await Axios.request(option);
         return response;
     }
