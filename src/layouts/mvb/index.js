@@ -12,7 +12,7 @@ function App(props) {
   return (
     <div className="app">
       <AppHeader {...props} />
-      <div className="app-content">
+      <div className="app-content" id="appContent">
         <div className="contet-wrapper">
           <Routes>
             {routes.map((m, idx) => {

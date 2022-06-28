@@ -6,7 +6,7 @@ const NotFound = () => {
   return (
     <div className="not-found-container">
       <h2>Nothing to see here!</h2>
-      <p>Awesome things is comming soon</p>
+      <p>Awesome things are coming soon</p>
       <p>
         <Link to={pathName.home}>Go to the home page</Link>
       </p>
