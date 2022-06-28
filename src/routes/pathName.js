@@ -15,7 +15,9 @@ const pathName = {
         detail: params => `/tv-show/${params}`,
     },
     genre: {
-        list: '/genre'
+        list: '/genre',
+        movieByGenre: (params) => `/genre/movie/${params}`,
+        seriesByGenre: (params) => `/genre/series/${params}`,
     },
     search: params => `/search/${params || ''}`
 };

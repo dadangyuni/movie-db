@@ -24,7 +24,7 @@ const AppFooter = () => {
             {' '}
             by Dadang.
           </span>
-          <Button><FontAwesomeIcon icon={faArrowUp} /></Button>
+          <Button className="btn-up-footer" type="link" href="#appContent"><FontAwesomeIcon icon={faArrowUp} /></Button>
         </div>
       </div>
     </div>
